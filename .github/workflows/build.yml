@@ -17,10 +17,10 @@ jobs:
 
       - name: Build converter
         shell: cmd
-        run: msbuild cap2musicxml.csproj /p:Configuration=Release /p:Platform=AnyCPU
+        run: msbuild src\cap2musicxml.csproj /p:Configuration=Release /p:Platform=AnyCPU
 
       - name: Upload executable
         uses: actions/upload-artifact@v4
         with:
           name: cap2musicxml-exe
-          path: bin/Release/cap2musicxml.exe
+          path: src/bin/Release/cap2musicxml.exe
