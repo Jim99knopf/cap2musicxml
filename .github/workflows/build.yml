@@ -1,0 +1,26 @@
+
+name: Build cap2musicxml
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Get source
+        uses: actions/checkout@v4
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build converter
+        shell: cmd
+        run: msbuild cap2musicxml.csproj /p:Configuration=Release /p:Platform=AnyCPU
+
+      - name: Upload executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: cap2musicxml-exe
+          path: bin/Release/cap2musicxml.exe
