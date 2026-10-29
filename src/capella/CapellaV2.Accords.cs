@@ -132,7 +132,8 @@ namespace lg2de.cap2musicxml.capella
                                 newBeatType = 64;
                                 break;
                             default:
-                                throw new NotImplementedException();
+                                newBeatType = 4;
+                                break;
                         }
 
                         // check if beat type is really changed
